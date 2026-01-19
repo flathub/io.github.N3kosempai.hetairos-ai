@@ -1,0 +1,87 @@
+app-id: io.github.N3kosempai.hetairos-ai
+runtime: org.gnome.Platform
+runtime-version: "49"
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.llvm20
+command: hetairos-ai
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --share=network
+  - --socket=pulseaudio # For microphone and audio access
+  - --filesystem=xdg-download # For model downloads
+  - --filesystem=xdg-data/hetairos-ai:create # For app data
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin:/usr/lib/sdk/llvm20/bin:/run/build/hetairos-ai/npm-global/bin
+  env:
+    CARGO_HOME: /run/build/hetairos-ai/cargo
+    RUST_BACKTRACE: "1"
+    NODE_ENV: production
+    LIBCLANG_PATH: /usr/lib/sdk/llvm20/lib
+    PKG_CONFIG_PATH: /app/lib/pkgconfig
+    RUSTFLAGS: "-C target-cpu=x86-64-v3"
+    CFLAGS: "-march=x86-64-v3 -O3"
+    CXXFLAGS: "-march=x86-64-v3 -O3"
+modules:
+  # ONNX Runtime - Required for TTS and STT (using prebuilt binaries)
+  - name: onnxruntime
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-x64-1.22.0.tgz
+        sha256: 8344d55f93d5bc5021ce342db50f62079daf39aaafb5d311a451846228be49b3
+    build-commands:
+      - install -Dm755 lib/libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so.1.22.0
+      - ln -s libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so
+      - mkdir -p /app/include
+      - cp -r include/* /app/include/
+  - name: hetairos-ai
+    buildsystem: simple
+    build-options:
+      env:
+        XDG_CACHE_HOME: /run/build/hetairos-ai/cache
+        CARGO_HOME: /run/build/hetairos-ai/cargo
+        npm_config_cache: /run/build/hetairos-ai/flatpak-node/npm-cache
+        npm_config_prefix: /run/build/hetairos-ai/npm-global
+        npm_config_offline: "true"
+        CI: "true"
+        TAURI_PLATFORM_TYPE: "Linux"
+        TAURI_ENV_PRODUCTION: "true"
+        ORT_STRATEGY: "system"
+        ORT_DYLIB_PATH: "/app/lib"
+        LD_LIBRARY_PATH: "/app/lib"
+        PKG_CONFIG_PATH: "/app/lib/pkgconfig"
+        LC_ALL: C.utf8
+    build-commands:
+      # Install all dependencies including dev dependencies (needed for build tools)
+      - npm install --include=dev
+
+      # Build using Tauri CLI directly from node_modules (no bundle creation to save time and space)
+      - ./node_modules/.bin/tauri build --no-bundle
+
+      # Install the binary
+      - install -Dm755 src-tauri/target/release/hetairos-ai -t /app/bin/
+
+      # Install desktop file
+      - install -Dm644 io.github.N3kosempai.hetairos-ai.desktop -t /app/share/applications/
+
+      # Install icons (multiple resolutions for better display)
+      - install -Dm644 src-tauri/icons/32x32.png /app/share/icons/hicolor/32x32/apps/io.github.N3kosempai.hetairos-ai.png
+      - install -Dm644 src-tauri/icons/128x128.png /app/share/icons/hicolor/128x128/apps/io.github.N3kosempai.hetairos-ai.png
+      - install -Dm644 src-tauri/icons/128x128@2x.png /app/share/icons/hicolor/256x256/apps/io.github.N3kosempai.hetairos-ai.png
+      - install -Dm644 src-tauri/icons/icon.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
+
+      # Install metainfo
+      - install -Dm644 io.github.N3kosempai.hetairos-ai.metainfo.xml -t /app/share/metainfo/
+    sources:
+      - type: git
+        url: https://github.com/N3koSempai/hetairos-ai.git
+        tag: v1.0.2
+        commit: 358fd650ebe682418ffed1655edd29b3072bea72
+      - generated-sources.json
+      - cargo-sources.json
