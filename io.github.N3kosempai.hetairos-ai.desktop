@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Hetairos AI
+Comment=Your AI Waifu Assistant with Animated Interactions
+GenericName=AI Waifu Assistant
+Keywords=AI;Assistant;Waifu;Voice;Animation;Companion;
+Exec=hetairos-ai
+Icon=io.github.N3kosempai.hetairos-ai
+Type=Application
+Categories=Utility;AudioVideo;Chat;
+Terminal=false
+StartupNotify=true
