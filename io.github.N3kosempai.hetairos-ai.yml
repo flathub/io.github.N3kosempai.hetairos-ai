@@ -14,7 +14,6 @@ modules:
   - name: hetairos-ai
     buildsystem: simple
     build-commands:
-      # Install metadata files first (required for AppStream)
       - install -Dm644 io.github.N3kosempai.hetairos-ai.desktop /app/share/applications/io.github.N3kosempai.hetairos-ai.desktop
       - install -Dm644 io.github.N3kosempai.hetairos-ai.metainfo.xml /app/share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml
 
