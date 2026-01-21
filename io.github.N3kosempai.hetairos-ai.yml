@@ -16,10 +16,7 @@ modules:
     build-commands:
       - install -Dm644 io.github.N3kosempai.hetairos-ai.desktop /app/share/applications/io.github.N3kosempai.hetairos-ai.desktop
       - install -Dm644 io.github.N3kosempai.hetairos-ai.metainfo.xml /app/share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml
-
-      - install -Dm644 icons/512x512.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
-
-      # Install apply_extra script
+      - install -Dm644 512x512.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
       - install -Dm755 apply_extra /app/bin/apply_extra
     sources:
       - type: file
