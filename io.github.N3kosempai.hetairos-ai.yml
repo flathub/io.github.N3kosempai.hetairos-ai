@@ -35,8 +35,8 @@ modules:
           - rm -f hetairos-ai.tar.gz
       - type: extra-data
         filename: hetairos-ai.tar.gz
-        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v1.0.3/hetairos-ai-1.0.3-x86_64.tar.gz
-        sha256: 4e257217f59fe2b70e2bb9e25a65a9291b9ccf65dc492d5786fc5c275b402615
-        size: 29582441
+        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v1.0.4/hetairos-ai-1.0.4-x86_64.tar.gz
+        sha256: 41e6f43183c92a819204adc9597a7ab2ffc92ee42ac95c9a48399f31e92f75d7
+        size: 29581753
         only-arches:
           - x86_64
