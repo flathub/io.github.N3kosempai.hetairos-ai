@@ -24,17 +24,17 @@
     <screenshot type="default">
       <caption>Main application window with AI waifu assistant</caption>
       <image
-            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/main/screenshots/hetairos-1.png</image>
+            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/2a4db68/screenshots/hetairos-1.png</image>
     </screenshot>
     <screenshot>
       <caption>Voice interaction with animated character</caption>
       <image
-            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/main/screenshots/hetairos-2.png</image>
+            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/2a4db68/screenshots/hetairos-2.png</image>
     </screenshot>
     <screenshot>
       <caption>Desktop companion with expressive animations</caption>
       <image
-            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/main/screenshots/hetairos-3.png</image>
+            >https://raw.githubusercontent.com/N3koSempai/hetairos-open/2a4db68/screenshots/hetairos-3.png</image>
     </screenshot>
   </screenshots>
   <provides>
