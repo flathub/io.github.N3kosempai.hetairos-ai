@@ -15,6 +15,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -Dm755 hetairos-ai /app/bin/hetairos-ai
+      - mkdir -p /app/lib
       - cp -a lib/libonnxruntime.so* /app/lib/
       - install -Dm644 share/applications/io.github.N3kosempai.hetairos-ai.desktop /app/share/applications/io.github.N3kosempai.hetairos-ai.desktop
       - install -Dm644 share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml /app/share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml
