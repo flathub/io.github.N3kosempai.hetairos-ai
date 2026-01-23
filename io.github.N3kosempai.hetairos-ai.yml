@@ -4,6 +4,7 @@ runtime-version: "49"
 sdk: org.gnome.Sdk
 command: hetairos-ai
 finish-args:
+  - --env=ORT_DYLIB_PATH=/app/lib/libonnxruntime.so
   - --share=ipc
   - --socket=fallback-x11
   - --socket=wayland
