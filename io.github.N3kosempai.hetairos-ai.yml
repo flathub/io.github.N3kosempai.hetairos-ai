@@ -3,6 +3,8 @@ runtime: org.gnome.Platform
 runtime-version: "49"
 sdk: org.gnome.Sdk
 command: hetairos-ai
+tags: 
+  - proprietary
 finish-args:
   - --env=ORT_DYLIB_PATH=/app/lib/libonnxruntime.so
   - --share=ipc
