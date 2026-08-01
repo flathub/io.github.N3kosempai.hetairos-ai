@@ -23,7 +23,7 @@ modules:
       - install -Dm644 share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
     sources:
       - type: archive
-        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v5.0.0/hetairos-ai-5.0.0-x86_64.tar.gz
-        sha256: 5f87e5f28f65e70540b4512d3dc9c2b2e2eea700050869b2eb4677f0d64ff03e
+        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v5.1.0/hetairos-ai-5.1.0-x86_64.tar.gz
+        sha256: 71562fcd9897d632ba6ef4690e22c4b9b8d5db97a27d82dfb72f73dfcf5f8cd5
         only-arches:
           - x86_64
