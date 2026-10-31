@@ -20,10 +20,11 @@ modules:
       - cp -a lib/libonnxruntime.so* /app/lib/
       - install -Dm644 share/applications/io.github.N3kosempai.hetairos-ai.desktop /app/share/applications/io.github.N3kosempai.hetairos-ai.desktop
       - install -Dm644 share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml /app/share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml
+      - install -Dm644 share/dbus-1/services/io.github.N3kosempai.hetairos-ai.service /app/share/dbus-1/services/io.github.N3kosempai.hetairos-ai.service
       - install -Dm644 share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
     sources:
       - type: archive
-        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v5.7.0/hetairos-ai-5.7.0-x86_64.tar.gz
-        sha256: 6afd5d7b43acd7ebdb493a467420b074e6d617a1d2f5f5de783464ebd6e3eca2
+        url: https://github.com/N3koSempai/hetairos-ai/releases/download/v5.7.1/hetairos-ai-5.7.1-x86_64.tar.gz
+        sha256: 7f757bcbd724408904a21300193504cb5c3e9ffb71842e4bcbba1cd95efe6a93
         only-arches:
           - x86_64
