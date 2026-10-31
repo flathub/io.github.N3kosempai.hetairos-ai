@@ -11,6 +11,7 @@ finish-args:
   - --device=dri
   - --share=network
   - --socket=pulseaudio
+  - --own-name=io.github.N3kosempai.hetairos_ai
 modules:
   - name: hetairos-ai
     buildsystem: simple
@@ -20,6 +21,7 @@ modules:
       - cp -a lib/libonnxruntime.so* /app/lib/
       - install -Dm644 share/applications/io.github.N3kosempai.hetairos-ai.desktop /app/share/applications/io.github.N3kosempai.hetairos-ai.desktop
       - install -Dm644 share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml /app/share/metainfo/io.github.N3kosempai.hetairos-ai.metainfo.xml
+      - install -Dm644 share/dbus-1/services/io.github.N3kosempai.hetairos_ai.service /app/share/dbus-1/services/io.github.N3kosempai.hetairos_ai.service
       - install -Dm644 share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png /app/share/icons/hicolor/512x512/apps/io.github.N3kosempai.hetairos-ai.png
     sources:
       - type: archive
