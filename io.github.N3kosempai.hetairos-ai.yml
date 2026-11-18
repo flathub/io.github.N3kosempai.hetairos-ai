@@ -29,6 +29,6 @@ modules:
     sources:
       - type: archive
         url: https://github.com/N3koSempai/hetairos-ai/releases/download/v5.9.1/hetairos-ai-5.9.1-x86_64.tar.gz
-        sha256: e862ffa7ac46f3553ad22a79710777b95cd7d59a0dc19c09ca2207e2311cc69e
+        sha256: 619a3f519dd5f72b246847eb9b2666ab7f503e414ee9e2edc3583b4b0a353493
         only-arches:
           - x86_64
